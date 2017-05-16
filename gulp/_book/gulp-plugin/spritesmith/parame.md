@@ -1,0 +1,46 @@
+# 参数
+
+- 参数对象 - 包含gulp.spritesmith所需的配置参数
+	- imgName String - 生成图片的文件名
+		- 文件名字可带格式后缀.png或.jpg/jpeg，该后缀同时指定了生成文件的格式。(受engine属性的属性值限制)
+		- 文件名字的格式后缀会被imgOpts属性的cssFormat属性的属性值覆盖
+	- cssName String - 生成css的文件名
+		- 文件名字可带格式后缀.css，.sass，.scss，.less,该后缀同时指定了生成文件的格式
+		- 文件名字的格式后缀会被cssFormat属性的属性值覆盖
+	- imgPath String - 设置路径。让css用来引入该生成文件。
+	- padding Number - 设置图标间的距离。
+		- 默认值为0
+		- 示例 [Examples section](https://www.npmjs.com/package/gulp.spritesmith#padding)
+	- algorithm String - 设置图标的围绕方式
+		- 默认值为binary-tree
+		- 示例 [Examples section](https://www.npmjs.com/package/gulp.spritesmith#algorithms)
+		- 值可为top-down, left-right, diagonal, alt-diagonal, binary-tree
+	- algorithmOpts Object - 设置图标的排序（小的在前或大的在前）
+		- 例如其值可设为{algorithmOpts: {sort: false}}
+		- 详细用法可阅读[此处](https://github.com/twolfson/layout#algorithms)
+	- engine String - 设置图片生成器
+		- 默认值为pixelsmith，node的基本图片生成器之一，支持常见的图片格式
+		- 替换其他图片生成器，需通过npm install安装
+		- 其他[图片生成器](https://www.npmjs.com/package/gulp.spritesmith#engines)
+	- engineOpts Object - 设置图片生成器额外的配置
+		- 例如可通过{engineOpts: {timeout: 10000}}设置phantomjssmith图片生成器的超时时间
+		- 更多配置，需查看所选择的图片生成器的文档
+	- imgOpts Object - 配置图片生成器生成图片的格式和清晰度
+		- 例如gmsimth图片生成器可通过设置 {imgOpts: {quality: 75}}控制生成图片的清晰度
+		- 更多设置可参考图片生成器的文档
+	- cssFormat String - 生成css文件的格式
+		- 默认为cssName属性的属性值的后缀
+		- 更多[格式](https://github.com/twolfson/spritesheet-templates#templates)
+	- cssTemplate String|Function - 用作输出css的模板
+		- 可被cssFormat属性的属性值覆盖
+		- 如果属性值是string类型，则该值需为模板的引用地址
+		- 如果属性值是function类型，则该函数需带有参数data，比如function(data)
+		- [更多使用技巧](https://www.npmjs.com/package/gulp.spritesmith#templating)
+	- cssHandlebarsHelper Object 供Handlebars.registerHelper使用
+		- 基本用不上，不译
+	- cssVarMap Function 生成的css文件内有各个图标的变量名，这是用来设置各个图标的变量名前缀或后缀的
+		- [更多信息](https://www.npmjs.com/package/gulp.spritesmith#variable-mapping)
+	- cssSpritesheetName String - 不译
+	- cssOpts Object - 设置生成css文件的配置
+		- 更多有效的设置，请查看相应cssTemplate的[文档](https://github.com/twolfson/spritesheet-templates#templates)
+
